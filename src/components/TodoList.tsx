@@ -1,17 +1,13 @@
 import React from "react";
-import { ITodoListProps } from "../types/data";
 import TodoItem from "./TodoItem";
+import { useAppSelector } from "../hooks/hooks";
 
-const TodoList: React.FC<ITodoListProps> = (props) => {
+const TodoList: React.FC = () => {
+  const todos = useAppSelector((state) => state.todos.list);
   return (
     <div>
-      {props.items.map((item) => (
-        <TodoItem
-          key={item.id}
-          {...item}
-          toggleTodo={props.toggleTodo}
-          removeTodo={props.removeTodo}
-        />
+      {todos.map((todo) => (
+        <TodoItem key={todo.id} {...todo} />
       ))}
     </div>
   );

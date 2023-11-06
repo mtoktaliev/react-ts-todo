@@ -1,16 +1,13 @@
 export interface ITodo {
-  id: number;
+  id: string;
   title: string;
   complete: boolean;
 }
 
-export interface ITodoListProps {
-  items: ITodo[];
-  toggleTodo: (id: number) => void;
-  removeTodo: (id: number) => void;
+export interface NewTodoFormProps {
+  value: string;
+  updateText: (str: string) => void;
+  handleAction: () => void;
 }
 
-export interface ITododItem extends ITodo {
-  removeTodo: (id: number) => void;
-  toggleTodo: (id: number) => void;
-}
+export interface ITododItem extends ITodo {}
